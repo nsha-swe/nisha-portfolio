@@ -1,5 +1,6 @@
 // add this import at the top of app/page.tsx
 import { Brawler } from "next/font/google";
+
 const brawler = Brawler({ subsets: ["latin"], weight: "400" });
 
 export default function Page() {
@@ -14,13 +15,13 @@ export default function Page() {
         <h1
           className={`${brawler.className} text-5xl sm:text-6xl tracking-[-0.02em] leading-[1.05]`}
         >
-          Hi, I'm Nisha.
+          Hi, I’m Nisha.
         </h1>
 
         <p className="mt-4 max-w-2xl text-black/70">
-          If you're reading this, you might be looking for your next Fullstack
+          If you’re reading this, you might be looking for your next Fullstack
           Engineer. I’m rebuilding my portfolio with some really cool features
-          that'll show you it's me. In the meantime, feel free to reach out.
+          that’ll show you it’s me. In the meantime, feel free to reach out.
         </p>
       </header>
       <section className="relative z-10 mx-auto max-w-5xl px-6 py-12">
@@ -83,16 +84,6 @@ function Tile({ title, pill }: { title: string; pill: string }) {
       </div>
       <div className="mt-3 text-sm font-medium leading-tight">{title}</div>
       <div className="mt-2 h-16 rounded-xl bg-gradient-to-br from-black/5 to-black/10" />
-    </div>
-  );
-}
-
-function Decor() {
-  return (
-    <div aria-hidden className="pointer-events-none absolute inset-0">
-      <div className="absolute left-[-10%] top-[15%] h-60 w-60 rounded-full bg-gradient-to-br from-black/5 to-black/10 blur-2xl" />
-      <div className="absolute right-[-5%] top-[30%] h-44 w-44 rounded-full bg-gradient-to-br from-black/5 to-black/10 blur-xl" />
-      <div className="absolute left-[20%] bottom-[10%] h-28 w-28 rounded-full bg-gradient-to-br from-black/5 to-black/10 blur-xl" />
     </div>
   );
 }
