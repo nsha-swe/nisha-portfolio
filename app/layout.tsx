@@ -9,7 +9,7 @@ const quicksand = Quicksand({
 
 export const metadata = {
   title: "Nisha Ahamed",
-  description: "Portfolio — coming soon",
+  description: "Full-stack engineer specializing in fintech, payment systems, and frontend architecture. Building reliable financial infrastructure.",
   // Make the browser UI (address bar) match your theme on mobile
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },
