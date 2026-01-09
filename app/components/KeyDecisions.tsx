@@ -4,13 +4,13 @@ interface KeyDecisionsProps {
 
 export default function KeyDecisions({ decisions }: KeyDecisionsProps) {
   return (
-    <div className="rounded-3xl border border-black/10 bg-white/70 p-8 shadow-[0_20px_80px_rgba(0,0,0,0.08)] backdrop-blur-xl">
-      <h3 className="text-2xl font-semibold mb-6">Key decisions</h3>
-      <ul className="space-y-3">
+    <div className="border border-[var(--border)] bg-white p-8 hover:-translate-y-1 hover:border-[var(--fg)]/20 hover:bg-neutral-50 transition-all duration-200 ease-out">
+      <h3 className="font-headline text-2xl font-semibold mb-6">Key decisions</h3>
+      <ul className="space-y-4">
         {decisions.map((decision, idx) => (
-          <li key={idx} className="flex items-start gap-3">
-            <span className="text-emerald-600 mt-1">•</span>
-            <span className="text-black/80 leading-relaxed">{decision}</span>
+          <li key={idx} className="flex items-start gap-4">
+            <span className="text-[var(--accent)] mt-1 font-mono">•</span>
+            <span className="leading-relaxed flex-1">{decision}</span>
           </li>
         ))}
       </ul>

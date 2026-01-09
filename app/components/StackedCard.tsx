@@ -72,8 +72,8 @@ export default function StackedCard({ children, index, className = "" }: Stacked
         className={
           prefersReducedMotion
             ? ""
-            : `lg:sticky lg:transition-transform lg:transition-opacity lg:duration-300 ${
-                isActive ? "lg:opacity-100 lg:translate-y-0" : "lg:opacity-90 lg:translate-y-1"
+            : `lg:sticky lg:transition-opacity lg:duration-200 ${
+                isActive ? "lg:opacity-100" : "lg:opacity-95"
               }`
         }
         style={
@@ -84,7 +84,9 @@ export default function StackedCard({ children, index, className = "" }: Stacked
               }
         }
       >
-        {children}
+        <div className="[@media(prefers-reduced-motion:reduce)]:hover:translate-y-0">
+          {children}
+        </div>
       </div>
     </div>
   );

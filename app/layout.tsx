@@ -1,10 +1,25 @@
 // app/layout.tsx
 import "./globals.css";
-import { Quicksand } from "next/font/google";
+import { Instrument_Serif } from "next/font/google";
+import { Inter } from "next/font/google";
+import { IBM_Plex_Mono } from "next/font/google";
 
-const quicksand = Quicksand({
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-headline",
+});
+
+const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  variable: "--font-body",
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-mono",
 });
 
 export const metadata = {
@@ -31,7 +46,7 @@ export default function RootLayout({
     <html lang="en">
       {/* Quicksand everywhere by default; system dark mode colors */}
       <body
-        className={`${quicksand.className} antialiased bg-white text-black dark:bg-neutral-950 dark:text-neutral-100`}
+        className={`${inter.variable} ${instrumentSerif.variable} ${ibmPlexMono.variable} ${inter.className} antialiased`}
       >
         {children}
       </body>

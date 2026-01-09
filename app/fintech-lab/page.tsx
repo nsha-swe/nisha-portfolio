@@ -1,11 +1,8 @@
-import { Brawler } from "next/font/google";
 import { Metadata } from "next";
 import Link from "next/link";
 import Section from "../components/Section";
 import TransactionTimeline from "./components/TransactionTimeline";
 import ReconciliationExplorer from "./components/ReconciliationExplorer";
-
-const brawler = Brawler({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   title: "Tally — Interactive Tools | Nisha Ahamed",
@@ -14,30 +11,30 @@ export const metadata: Metadata = {
 
 export default function FintechLabPage() {
   return (
-    <main className="min-h-screen relative overflow-hidden bg-[radial-gradient(ellipse_at_top,rgba(0,0,0,0.04),transparent_60%),radial-gradient(ellipse_at_bottom,rgba(0,0,0,0.06),transparent_60%)]">
+    <main className="min-h-screen bg-[var(--bg)]">
       {/* Header */}
-      <header className="relative z-10 mx-auto max-w-5xl px-6 pt-16 sm:pt-24">
+      <header className="relative z-10 mx-auto max-w-5xl px-6 pt-24 pb-12 border-b border-[var(--border)]">
         <div className="flex flex-col gap-2 mb-6">
           <Link
             href="/"
-            className="inline-flex items-center text-sm text-black/60 hover:text-black transition-colors"
+            className="inline-flex items-center text-sm text-[var(--muted)] hover:text-[var(--fg)] transition-colors"
           >
             ← Back to home
           </Link>
-          <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/60 px-3 py-1 text-xs font-medium backdrop-blur-md w-fit">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+          <div className="inline-flex items-center gap-2 border border-[var(--border)] bg-[var(--panel)] px-3 py-1 text-xs font-mono uppercase tracking-wider text-[var(--muted)] w-fit">
+            <span className="h-1.5 w-1.5 rounded-full bg-[var(--accent)]" />
             Tally
           </div>
         </div>
-        <h1 className={`${brawler.className} text-5xl sm:text-6xl tracking-[-0.02em] leading-[1.05] mb-4`}>
+        <h1 className="font-headline text-5xl sm:text-6xl tracking-tight leading-[1.05] mb-6">
           Tally
         </h1>
-        <p className="max-w-3xl text-black/70 text-lg leading-relaxed mb-6">
+        <p className="max-w-3xl text-[var(--muted)] text-lg leading-relaxed mb-6">
           Interactive tools to explore payment processing and reconciliation concepts. All data is generated
           locally—no external APIs or real transactions.
         </p>
-        <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 max-w-3xl">
-          <p className="text-sm text-amber-900">
+        <div className="border border-[var(--border)] bg-white p-4 max-w-3xl">
+          <p className="text-sm text-[var(--muted)]">
             <strong>Disclaimer:</strong> These tools use simulated data generated in your browser. They are for
             educational purposes only and do not connect to any payment processors or financial systems.
           </p>
@@ -54,8 +51,8 @@ export default function FintechLabPage() {
         <ReconciliationExplorer />
       </Section>
 
-      <footer className="relative z-10 mx-auto max-w-5xl px-6 pb-16 text-xs text-black/50">
-        <Link href="/" className="hover:text-black transition-colors">
+      <footer className="relative z-10 mx-auto max-w-5xl px-6 pb-16 text-xs text-[var(--muted)] bg-white">
+        <Link href="/" className="hover:text-[var(--fg)] transition-colors">
           ← Back to home
         </Link>
       </footer>

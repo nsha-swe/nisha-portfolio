@@ -4,8 +4,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-grotesk)", "ui-sans-serif", "system-ui"], // paragraphs, body
-        header: ["var(--font-brawler)", "serif"], // headings
+        headline: ["var(--font-headline)", "serif"],
+        body: ["var(--font-body)", "ui-sans-serif", "system-ui"],
+        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
     },
   },
