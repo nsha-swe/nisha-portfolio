@@ -286,7 +286,7 @@ export default function FintechPlatformCaseStudy() {
           <div className="rounded-3xl border border-black/10 bg-white/70 p-8 shadow-[0_20px_80px_rgba(0,0,0,0.08)] backdrop-blur-xl">
             <h3 className="text-xl font-semibold mb-4">Webhook handling</h3>
             <p className="text-black/70 mb-4 leading-relaxed">
-              Incoming webhooks are verified using HMAC-SHA256 signatures. Each webhook includes a nonce that's 
+              Incoming webhooks are verified using HMAC-SHA256 signatures. Each webhook includes a nonce {"that's"} 
               checked against a Redis set to prevent replay attacks. Webhooks are processed asynchronously with 
               a queue, and failed deliveries are retried with exponential backoff.
             </p>
@@ -294,7 +294,7 @@ export default function FintechPlatformCaseStudy() {
               <div className="font-medium mb-2">Verification steps:</div>
               <ol className="list-decimal list-inside space-y-1 text-black/70">
                 <li>Verify HMAC signature matches payload</li>
-                <li>Check nonce hasn't been seen (Redis SET with TTL)</li>
+                <li>{"Check nonce hasn't been seen (Redis SET with TTL)"}</li>
                 <li>Validate timestamp is within 5-minute window</li>
                 <li>Process webhook and update transaction status</li>
               </ol>
@@ -370,7 +370,7 @@ export default function FintechPlatformCaseStudy() {
             <h3 className="text-xl font-semibold mb-4">Accessibility</h3>
             <p className="text-black/70 mb-4 leading-relaxed">
               All interactive elements are keyboard navigable. ARIA labels and roles are used where semantic HTML 
-              isn't sufficient. Color contrast meets WCAG AA standards. Screen reader announcements are provided 
+              {" isn't"} sufficient. Color contrast meets WCAG AA standards. Screen reader announcements are provided 
               for dynamic content updates.
             </p>
           </div>
@@ -468,7 +468,7 @@ export default function FintechPlatformCaseStudy() {
 
       {/* Tradeoffs & Improvements */}
       <Section>
-        <h2 className={`${brawler.className} text-3xl font-semibold mb-6`}>Tradeoffs & what I'd improve next</h2>
+        <h2 className={`${brawler.className} text-3xl font-semibold mb-6`}>{"Tradeoffs & what I'd improve next"}</h2>
         <div className="rounded-3xl border border-black/10 bg-white/70 p-8 shadow-[0_20px_80px_rgba(0,0,0,0.08)] backdrop-blur-xl">
           <div className="space-y-6">
             <div>

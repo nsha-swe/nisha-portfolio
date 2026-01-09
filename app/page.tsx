@@ -26,7 +26,7 @@ export default function Page() {
       {/* What I'm Building Now */}
       <Section className="py-8">
         <div className="rounded-3xl border border-black/10 bg-white/70 p-6 shadow-[0_20px_80px_rgba(0,0,0,0.08)] backdrop-blur-xl">
-          <h2 className={`${brawler.className} text-2xl font-semibold mb-4`}>What I'm building now</h2>
+          <h2 className={`${brawler.className} text-2xl font-semibold mb-4`}>{"What I'm building now"}</h2>
           <div className="grid gap-4 sm:grid-cols-3">
             <div className="rounded-2xl border border-black/10 bg-white/70 p-4 backdrop-blur-md">
               <div className="flex items-center justify-between mb-2">
@@ -57,7 +57,7 @@ export default function Page() {
               </div>
               <div className="text-sm font-medium leading-tight mb-2">Benefits Wallet</div>
               <div className="text-xs text-black/70 mb-2">
-                A mobile-first "wallet" experience modeling claims and cost-share as a transaction timeline. Internally uses ledger-style adjustments and reconciliation concepts (simulated data). Planned screens: Timeline, Claim detail, Dispute flow, Reconciliation summary. Tech: Expo + React Native + TypeScript.
+                A mobile-first {"wallet"} experience modeling claims and cost-share as a transaction timeline. Internally uses ledger-style adjustments and reconciliation concepts (simulated data). Planned screens: Timeline, Claim detail, Dispute flow, Reconciliation summary. Tech: Expo + React Native + TypeScript.
               </div>
               <div className="text-[10px] text-black/50 italic">Concept + prototype in progress.</div>
             </div>
@@ -289,7 +289,7 @@ export default function Page() {
         <div className="rounded-3xl border border-black/10 bg-white/70 p-8 shadow-[0_20px_80px_rgba(0,0,0,0.08)] backdrop-blur-xl">
           <h2 className={`${brawler.className} text-3xl font-semibold mb-4`}>Get in touch</h2>
           <p className="text-black/70 mb-6 max-w-2xl">
-             Whether it's to discuss projects, product systems, or whether or not cortados are here to stay— reach out via email, LinkedIn, or GitHub.
+             {"Whether it's to discuss projects, product systems, or whether or not cortados are here to stay— reach out via email, LinkedIn, or GitHub."}
           </p>
           <div className="flex flex-wrap items-center gap-3 mb-6">
             <a
