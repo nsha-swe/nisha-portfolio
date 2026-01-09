@@ -38,7 +38,7 @@ export default function Page() {
               <div className="text-xs text-[var(--muted)]">Production-style full-stack system with real-time features and robust error handling. Topic? Top secret 😉 Check back for updates!</div>
             </div>
             <Link
-              href="/fintech-lab"
+              href="/tally"
               className="border border-[var(--border)] bg-white p-4 hover:-translate-y-2 hover:border-[var(--fg)]/20 hover:bg-neutral-50 transition-all duration-200 ease-out focus:ring-2 focus:ring-[var(--accent)]/20 focus:outline-none block"
             >
               <div className="flex items-center justify-between mb-2">
@@ -165,7 +165,7 @@ export default function Page() {
                 Tally is a transactional sandbox featuring a payments-style timeline and a reconciliation explorer that models ledger adjustments and mismatches using simulated USD data.
               </p>
               <Link
-                href="/fintech-lab"
+                href="/tally"
                 className="inline-flex items-center border border-[var(--fg)] bg-[var(--fg)] text-white px-5 py-2 text-sm font-medium hover:-translate-y-1 hover:opacity-90 transition-all duration-200 ease-out"
               >
                 Explore Tally →
