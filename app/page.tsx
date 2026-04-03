@@ -15,7 +15,7 @@ export default function Page() {
         <div className="mb-6">
           <span className="glass-pill">
             <span className="glow-dot" />
-            Available for opportunities
+            Open to New Opportunities
           </span>
         </div>
         <h1
@@ -28,8 +28,8 @@ export default function Page() {
           className="font-headline text-2xl sm:text-3xl font-medium tracking-tight leading-[1.3] mb-6"
           style={{ color: "rgba(240,240,255,0.75)" }}
         >
-          Full-stack engineer focused on product systems,&nbsp;transactional
-          flows, and modern web architecture.
+          Fullstack engineer focused on product systems,&nbsp;transactional
+          flows, and modern web architecture. AI enthusiast.
         </h2>
         <p
           className="max-w-2xl text-lg leading-relaxed"

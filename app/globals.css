@@ -38,7 +38,15 @@ html {
 body {
   background: var(--bg);
   color: var(--fg);
-  font-family: var(--font-body), system-ui, sans-serif;
+  font-family: var(--font-body), Georgia, serif;
+  font-feature-settings: "kern" 1, "liga" 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-headline), Georgia, serif;
+  font-feature-settings: "kern" 1, "liga" 1, "swsh" 1;
+  letter-spacing: -0.02em;
 }
 
 /* ─── Glass utility ─────────────────────────────────────── */

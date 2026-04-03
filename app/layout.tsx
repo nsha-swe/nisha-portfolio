@@ -1,18 +1,20 @@
 // app/layout.tsx
 import "./globals.css";
-import { Plus_Jakarta_Sans } from "next/font/google";
-import { Inter } from "next/font/google";
+import { Playfair_Display } from "next/font/google";
+import { Lora } from "next/font/google";
 import { IBM_Plex_Mono } from "next/font/google";
 
-const plusJakartaSans = Plus_Jakarta_Sans({
+const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
   variable: "--font-headline",
 });
 
-const inter = Inter({
+const lora = Lora({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
   variable: "--font-body",
 });
 
@@ -43,7 +45,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${plusJakartaSans.variable} ${ibmPlexMono.variable} ${inter.className} antialiased`}
+        className={`${lora.variable} ${playfairDisplay.variable} ${ibmPlexMono.variable} ${lora.className} antialiased`}
       >
         {children}
       </body>
