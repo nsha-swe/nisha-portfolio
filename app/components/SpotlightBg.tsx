@@ -2,117 +2,104 @@
 
 import { useEffect, useState, useRef } from "react";
 
+/**
+ * AuroraBg — replaces the old editorial spotlight.
+ * Three large soft-gradient orbs (purple, blue, teal) that shift
+ * slightly with mouse movement, creating liquid-glass depth.
+ */
 export default function SpotlightBg() {
-  const [shouldRender, setShouldRender] = useState(false);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [mouse, setMouse] = useState({ x: 0.5, y: 0.5 });
+  const [canParallax, setCanParallax] = useState(false);
   const rafRef = useRef<number | undefined>(undefined);
-  const lastUpdateRef = useRef(0);
 
   useEffect(() => {
-    const checkConditions = () => {
-      if (typeof window === "undefined") return false;
+    const ok =
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
+      window.matchMedia("(pointer: fine)").matches &&
+      window.innerWidth >= 1024;
 
-      // Check prefers-reduced-motion
-      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (prefersReducedMotion) return false;
+    setCanParallax(ok);
+    if (!ok) return;
 
-      // Check pointer type
-      const prefersFinePointer = window.matchMedia("(pointer: fine)").matches;
-      if (!prefersFinePointer) return false;
-
-      // Check viewport width
-      if (window.innerWidth < 1024) return false;
-
-      return true;
-    };
-
-    const handleMouseMove = (e: MouseEvent) => {
-      // Throttle with requestAnimationFrame
-      if (rafRef.current) {
-        cancelAnimationFrame(rafRef.current);
-      }
-
+    const handleMove = (e: MouseEvent) => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
       rafRef.current = requestAnimationFrame(() => {
-        const now = Date.now();
-        if (now - lastUpdateRef.current < 16) return; // ~60fps throttle
-        lastUpdateRef.current = now;
-
-        setMousePos({ x: e.clientX, y: e.clientY });
+        setMouse({
+          x: e.clientX / window.innerWidth,
+          y: e.clientY / window.innerHeight,
+        });
       });
     };
 
-    const initialCheck = checkConditions();
-    setShouldRender(initialCheck);
-
-    if (!initialCheck) return;
-
-    // Set initial position to center
-    setMousePos({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
-
-    window.addEventListener("mousemove", handleMouseMove);
-
-    // Check on resize and media query changes
-    const mediaQueries = [
-      window.matchMedia("(prefers-reduced-motion: reduce)"),
-      window.matchMedia("(pointer: fine)"),
-    ];
-
-    const handleMediaChange = () => {
-      setShouldRender(checkConditions());
-    };
-
-    mediaQueries.forEach((mq) => {
-      mq.addEventListener("change", handleMediaChange);
-    });
-
-    const handleResize = () => {
-      setShouldRender(checkConditions());
-    };
-
-    window.addEventListener("resize", handleResize);
-
+    window.addEventListener("mousemove", handleMove);
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      mediaQueries.forEach((mq) => {
-        mq.removeEventListener("change", handleMediaChange);
-      });
-      window.removeEventListener("resize", handleResize);
-      if (rafRef.current) {
-        cancelAnimationFrame(rafRef.current);
-      }
+      window.removeEventListener("mousemove", handleMove);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
   }, []);
 
-  if (!shouldRender) {
-    // Render static subtle grid background instead
-    return (
-      <div
-        className="fixed inset-0 pointer-events-none z-0"
-        style={{
-          backgroundImage: `
-            repeating-linear-gradient(
-              0deg,
-              transparent,
-              transparent 1px,
-              rgba(0, 0, 0, 0.02) 1px,
-              rgba(0, 0, 0, 0.02) 2px
-            )
-          `,
-          opacity: 0.5,
-        }}
-      />
-    );
-  }
+  const dx = canParallax ? (mouse.x - 0.5) * 60 : 0;
+  const dy = canParallax ? (mouse.y - 0.5) * 40 : 0;
+  const transition = canParallax ? "transform 0.9s cubic-bezier(0.25,0.46,0.45,0.94)" : "none";
 
   return (
     <div
-      className="fixed inset-0 pointer-events-none z-0"
-      style={{
-        background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(0, 0, 0, 0.06), transparent 60%)`,
-        opacity: 0.08,
-        transition: "opacity 0.3s ease-out",
-      }}
-    />
+      className="fixed inset-0 pointer-events-none z-0 overflow-hidden"
+      aria-hidden="true"
+    >
+      {/* Purple orb — top-left */}
+      <div
+        style={{
+          position: "absolute",
+          top: "-10%",
+          left: "-5%",
+          width: "65vw",
+          height: "65vw",
+          borderRadius: "50%",
+          background:
+            "radial-gradient(circle, rgba(109,40,217,0.4) 0%, rgba(109,40,217,0.12) 45%, transparent 70%)",
+          filter: "blur(70px)",
+          transform: `translate(${dx * -0.6}px, ${dy * -0.6}px)`,
+          transition,
+          willChange: "transform",
+        }}
+      />
+
+      {/* Blue orb — top-right */}
+      <div
+        style={{
+          position: "absolute",
+          top: "-5%",
+          right: "-10%",
+          width: "55vw",
+          height: "55vw",
+          borderRadius: "50%",
+          background:
+            "radial-gradient(circle, rgba(37,99,235,0.34) 0%, rgba(37,99,235,0.1) 45%, transparent 70%)",
+          filter: "blur(80px)",
+          transform: `translate(${dx * 0.8}px, ${dy * 0.5}px)`,
+          transition,
+          willChange: "transform",
+        }}
+      />
+
+      {/* Teal orb — bottom-centre */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: "5%",
+          left: "25%",
+          width: "50vw",
+          height: "50vw",
+          borderRadius: "50%",
+          background:
+            "radial-gradient(circle, rgba(13,148,136,0.28) 0%, rgba(13,148,136,0.08) 45%, transparent 70%)",
+          filter: "blur(90px)",
+          transform: `translate(${dx * 0.4}px, ${dy * 0.9}px)`,
+          transition,
+          willChange: "transform",
+        }}
+      />
+    </div>
   );
 }
-
