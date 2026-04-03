@@ -46,7 +46,7 @@ export default function Page() {
         <ScrollReveal>
           <div className="glass p-6 sm:p-8">
             <h2 className="font-headline text-2xl font-semibold mb-6" style={{ color: "var(--fg)" }}>
-              {"What I'm building now"}
+              {"What I'm Building Now"}
             </h2>
             <div className="grid gap-4 sm:grid-cols-3">
               {/* Tally */}
@@ -54,7 +54,7 @@ export default function Page() {
                 href="/tally"
                 className="glass glass-hover p-5 block"
               >
-                <span className="glass-pill mb-4">Fintech</span>
+                <span className="glass-pill mb-4">Fintech Demo</span>
                 <div className="text-sm font-semibold leading-tight mb-2" style={{ color: "var(--fg)" }}>
                   Tally
                 </div>
