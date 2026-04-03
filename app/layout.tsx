@@ -1,27 +1,19 @@
 // app/layout.tsx
 import "./globals.css";
-import { Playfair_Display } from "next/font/google";
-import { Lora } from "next/font/google";
-import { IBM_Plex_Mono } from "next/font/google";
+import { Cormorant_Garamond, Montserrat } from "next/font/google";
+import { GeistMono } from "geist/font/mono";
 
-const playfairDisplay = Playfair_Display({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
   variable: "--font-headline",
 });
 
-const lora = Lora({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
+  weight: ["300", "400", "500", "600", "700"],
   variable: "--font-body",
-});
-
-const ibmPlexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-mono",
 });
 
 export const metadata = {
@@ -45,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${lora.variable} ${playfairDisplay.variable} ${ibmPlexMono.variable} ${lora.className} antialiased`}
+        className={`${cormorant.variable} ${montserrat.variable} ${GeistMono.variable} ${montserrat.className} antialiased`}
       >
         {children}
       </body>

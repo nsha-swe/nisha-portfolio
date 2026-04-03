@@ -49,18 +49,6 @@ export default function Page() {
               {"What I'm building now"}
             </h2>
             <div className="grid gap-4 sm:grid-cols-3">
-              {/* Mishty */}
-              <div className="glass glass-hover p-5">
-                <span className="glass-pill mb-4">Web App</span>
-                <div className="text-sm font-semibold leading-tight mb-2" style={{ color: "var(--fg)" }}>
-                  Mishty
-                </div>
-                <div className="text-xs leading-relaxed" style={{ color: "var(--muted)" }}>
-                  Production-style full-stack system with real-time features and robust error handling.
-                  Topic? Top secret 😉 Check back for updates!
-                </div>
-              </div>
-
               {/* Tally */}
               <Link
                 href="/tally"
@@ -71,24 +59,41 @@ export default function Page() {
                   Tally
                 </div>
                 <div className="text-xs leading-relaxed" style={{ color: "var(--muted)" }}>
-                  Mini sandbox for transactional product surfaces — payments-style timeline and reconciliation
+                  Mini sandbox for transactional product surfaces. Showcases banking-style timeline and reconciliation
                   explorer with simulated USD data.
                 </div>
               </Link>
 
-              {/* Benefits Wallet */}
-              <div className="glass glass-hover p-5">
+              {/* Sip Up */}
+              <Link
+                href="/sip-up"
+                className="glass glass-hover p-5 block"
+              >
                 <span className="glass-pill mb-4">Mobile App</span>
                 <div className="text-sm font-semibold leading-tight mb-2" style={{ color: "var(--fg)" }}>
-                  Benefits Wallet
+                  Sip Up
                 </div>
                 <div className="text-xs leading-relaxed mb-2" style={{ color: "var(--muted)" }}>
-                  A mobile-first wallet experience modeling claims and cost-share as a transaction timeline.
-                  Planned screens: Timeline, Claim detail, Dispute flow, Reconciliation summary.
-                  Tech: Expo + React Native + TypeScript.
+                  Water-tracking app that makes hydration fun and competitive. Log directly by popular bottle brands
+                  and sizes (Stanley, Hydro Flask, Yeti) and challenge friends in real-time hydration goals.
                 </div>
                 <div className="text-[10px] italic" style={{ color: "rgba(240,240,255,0.35)" }}>
-                  Concept + prototype in progress.
+                  In progress. Prototype available.
+                </div>
+              </Link>
+
+              {/* Mishty */}
+              <div className="glass glass-hover p-5">
+                <span className="glass-pill mb-4">Web App</span>
+                <div className="text-sm font-semibold leading-tight mb-2" style={{ color: "var(--fg)" }}>
+                  Mishty
+                </div>
+                <div className="text-xs leading-relaxed" style={{ color: "var(--muted)" }}>
+                  Fullstack marketplace system with embedded agentic AI to help users find their perfect fit.
+                  Of what? Top secret. 😉 Check back for updates!
+                </div>
+                <div className="text-[10px] italic" style={{ color: "rgba(240,240,255,0.35)" }}>
+                  In progress.
                 </div>
               </div>
             </div>

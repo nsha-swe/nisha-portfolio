@@ -4,9 +4,27 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        headline: ["var(--font-headline)", "serif"],
-        body: ["var(--font-body)", "ui-sans-serif", "system-ui"],
-        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
+        headline: [
+          "var(--font-headline)",
+          "Cormorant Garamond",
+          "Georgia",
+          "Times New Roman",
+          "serif",
+        ],
+        body: [
+          "var(--font-body)",
+          "Montserrat",
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif",
+        ],
+        mono: [
+          "var(--font-geist-mono)",
+          "ui-monospace",
+          "SFMono-Regular",
+          "Menlo",
+          "monospace",
+        ],
       },
     },
   },

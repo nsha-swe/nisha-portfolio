@@ -26,7 +26,7 @@
   --color-accent: var(--accent);
   --font-headline: var(--font-headline);
   --font-body: var(--font-body);
-  --font-mono: var(--font-mono);
+  --font-mono: var(--font-geist-mono);
 }
 
 /* ─── Base ─────────────────────────────────────────────── */
@@ -36,17 +36,20 @@ html {
 }
 
 body {
+  --font-mono: var(--font-geist-mono);
   background: var(--bg);
   color: var(--fg);
-  font-family: var(--font-body), Georgia, serif;
+  font-family: var(--font-body), "Montserrat", ui-sans-serif, system-ui, sans-serif;
   font-feature-settings: "kern" 1, "liga" 1;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-headline), Georgia, serif;
-  font-feature-settings: "kern" 1, "liga" 1, "swsh" 1;
+  font-family: var(--font-headline), "Cormorant Garamond", Georgia, "Times New Roman",
+    Times, serif;
+  font-feature-settings: "kern" 1, "liga" 1;
   letter-spacing: -0.02em;
+  font-weight: 500;
 }
 
 /* ─── Glass utility ─────────────────────────────────────── */
@@ -91,7 +94,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 999px;
   color: rgba(240, 240, 255, 0.65);
   font-size: 0.7rem;
-  font-family: var(--font-mono);
+  font-family: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 3px 10px;
@@ -159,7 +162,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 8px;
   padding: 4px 12px;
   font-size: 0.75rem;
-  font-family: var(--font-mono);
+  font-family: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
   color: rgba(240, 240, 255, 0.6);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
